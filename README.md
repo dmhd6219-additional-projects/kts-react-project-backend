@@ -2,15 +2,20 @@
 
 API для работы оплаты на проекте для [курса по React от KTS](https://github.com/dmhd6219-additional-projects/kts-react-project), написанный на python
 
-## Запуск локально
+## Запуск локально через Docker
 
 ### 1. Клонирование репозитория
 
    ```
    git clone https://github.com/dmhd6219-additional-projects/kts-react-project-backend
    cd kts-react-project-backend
-   poetry install
    ```
+
+### 2. Сборка Docker образа
+
+```
+docker build -t dmhd6219/react-project-backend:latest -f Dockerfile .
+```
 
 ### 2. Получение API ключей
 
@@ -31,8 +36,8 @@ API для работы оплаты на проекте для [курса по
     YOO_APP_ID=3459328
    ```
 
-### 4. Запуск проекта:
+### 4. Запуск проекта
 
-   ```
-   fastapi dev src/main.py
-   ```
+```
+docker run -d -p 8000:8000 --name react-project-backend-container --env-file .env dmhd6219/react-project-backend:latest
+```

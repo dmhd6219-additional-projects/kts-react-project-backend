@@ -1,10 +1,9 @@
-from functools import lru_cache
 from fastapi import FastAPI
 from yookassa import Configuration
 from fastapi.middleware.cors import CORSMiddleware
 
 from api.routes import router
-from core import config
+from core.config import get_settings
 
 app = FastAPI()
 app.include_router(router)
@@ -20,11 +19,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-@lru_cache
-def get_settings():
-    return config.Settings()
-
 
 Configuration.account_id = get_settings().YOO_APP_ID
 Configuration.secret_key = get_settings().YOO_SECRET

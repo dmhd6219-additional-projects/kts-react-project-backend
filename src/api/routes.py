@@ -1,6 +1,8 @@
 from fastapi import APIRouter, HTTPException
+
 from models.payment import PaymentRequest
 from services.payment_service import create_payment_yookassa
+from core.config import get_settings
 
 router = APIRouter()
 
@@ -11,3 +13,7 @@ def create_payment(request: PaymentRequest):
         return create_payment_yookassa(request)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/settings")
+def settings():
+    return get_settings()
