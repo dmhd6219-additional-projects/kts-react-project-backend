@@ -11,12 +11,6 @@ API для работы оплаты на проекте для [курса по
    cd kts-react-project-backend
    ```
 
-### 2. Сборка Docker образа
-
-```
-docker build -t dmhd6219/react-project-backend:latest -f Dockerfile .
-```
-
 ### 2. Получение API ключей
 
    Для получения API ключей нужно
@@ -36,7 +30,13 @@ docker build -t dmhd6219/react-project-backend:latest -f Dockerfile .
     YOO_APP_ID=3459328
    ```
 
-### 4. Запуск проекта
+### 4. Сборка Docker образа
+
+```
+docker build -t dmhd6219/react-project-backend:latest -f Dockerfile .
+```
+
+### 5. Запуск проекта
 
 ```
 docker run -d -p 8000:8000 --name react-project-backend-container --env-file .env dmhd6219/react-project-backend:latest
