@@ -1,6 +1,6 @@
 # Lalasia API
 
-API для работы оплаты на проекте для курса по React от KTS, написанный на python
+API для работы оплаты на проекте для [курса по React от KTS](https://github.com/dmhd6219-additional-projects/kts-react-project), написанный на python
 
 ## Запуск локально
 
