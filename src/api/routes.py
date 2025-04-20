@@ -13,7 +13,3 @@ def create_payment(request: PaymentRequest):
         return create_payment_yookassa(request)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
-@router.get("/settings")
-def settings():
-    return get_settings()
